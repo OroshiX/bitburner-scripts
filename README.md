@@ -30,10 +30,10 @@ you change them.
     - run `npm run build`
     - run `npm run webserver`
 - Go to the game
-    - `wget http://localhost:9182/bin/utils/initRepo.ns
-      /bin/utils/initRepo.ns`
-    - `run /bin/utils/initRepo.ns`
-    - `run /bin/sayHelloTs.ns`
+    - `wget http://localhost:9182/bin/utils/initRepo.js
+      /bin/utils/initRepo.js`
+    - `run /bin/utils/initRepo.js`
+    - `run /bin/sayHelloTs.js`
 
 If you see the colored output until the fake error, you should be good
 to go :)
@@ -55,13 +55,12 @@ A short description of the most important parts of the template.
 ```json
 {
   "scripts": {
-    "build": "npm-run-all buildTs copyResources buildNS buildManifest",
+    "build": "npm-run-all buildTs copyResources buildManifest",
     "buildTs": "tsc -p tsconfig.json",
-    "buildNS": "bin/buildNS.bash",
     "buildManifest": "bin/generateManifest.bash",
     "clean": "rm -rf build/*",
     "copyResources": "mkdir -p src/resources; cp -r src/resources build",
-    "re": "npm-run-all clean buildTs copyResources buildNS buildManifest",
+    "re": "npm-run-all clean buildTs copyResources buildManifest",
     "webserver": "node bin/webserver.js -p 9182 -d build --enable_cors"
   },
   "devDependencies": {
@@ -74,8 +73,6 @@ A short description of the most important parts of the template.
   convert `js` files to `ns` before writing their paths to the
   `resources/manifest.txt` file.
 - `buildTs`: runs `tsc`
-- `buildNS`: runs the `bin/buildNS.bash` script to convert `.js` to
-  `.ns`
 - `buildManifest`: runs the `bin/generateManifest.bash` to generate
   `resources/manifest.txt` file containing paths to all your scripts.
 - `clean`: cleans build folder

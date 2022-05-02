@@ -5,7 +5,7 @@ cd ./build || exit
 jsFiles=$(find . -name "*.js")
 
 echo "$jsFiles" | while read -r line; do
-  echo "> Building file ${line%.*}.ns"
+  echo "> Building file ${line%.*}.js"
   sed -re 's/(import.*\"\/.*)\"/\1\.ns\"/g' "$line" > "${line%.*}.ns"
 done
 
