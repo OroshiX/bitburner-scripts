@@ -1,2 +1,4 @@
 .idea/
 bitburner-scripts.iml
+build/
+node_modules/
