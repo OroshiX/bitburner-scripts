@@ -1,4 +1,4 @@
-import {allServers} from '/scripts/all-servers.js';
+import {allServers} from '/hacking/all-servers.js';
 /** @param {NS} ns */
 export async function main(ns) {
     let list = ns.scan();
@@ -6,12 +6,12 @@ export async function main(ns) {
     let scriptName = await ns.prompt("Script to run", { type: "select", choices: scripts });
     let targets = allServers.map((s) => s.hostname);
     let target = await ns.prompt("Target", { type: "select", choices: targets });
-    let nb = [];
+    let nb: string[] = [];
     for (let i = 0; i < 10; i++) {
         nb[i] = i.toString();
     }
     let nbArgs = await ns.prompt("Nb of args", { type: "select", choices: nb });
-    let args = [];
+    let args: string[] = [];
     for (let i = 0; i < parseInt(nbArgs); i++) {
         args[i] = await ns.prompt(`Argument ${i + 1}`, { type: "text" });
     }

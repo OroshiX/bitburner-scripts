@@ -1,13 +1,14 @@
-/** @param {NS} ns */
-export async function main(ns) {
-    const target = ns.args[0] ?? 'iron-gym';
+import {NS} from "Bitburner";
+
+export async function main(ns: NS) {
+    const target: string = <string>ns.args[0] ?? 'iron-gym';
     const hackRam = ns.getScriptRam('hack.js');
     const growRam = ns.getScriptRam('grow.js');
     const weakenRam = ns.getScriptRam('weaken.js');
 
     const moneyThresh = ns.getServerMaxMoney(target) * 0.75;
     const securityThresh = ns.getServerMinSecurityLevel(target) + 5;
-    const running = ns.args[1] ?? ns.getHostname();
+    const running: string = <string>ns.args[1] ?? ns.getHostname();
 
     while (true) {
         const homeMaxRam = ns.getServerMaxRam(running);

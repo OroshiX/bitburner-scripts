@@ -1,14 +1,19 @@
 /** @param {NS} ns */
-export async function main(ns) {
-    const target = ns.args[0] ?? 'iron-gym';
-    const targetRun = ns.args[1] ?? ns.getHostname();
-    ns.print(`running bis-organizer with target ${target}, and targetRun ${targetRun}, on host ${ns.getHostname()}`);
+import {NS} from "Bitburner";
+
+export async function main(ns: NS) {
+    const target: string = <string>ns.args[0] ?? 'iron-gym';
+    const targetRun: string = <string>ns.args[1] ?? ns.getHostname();
+    ns.print(
+        `running bis-organizer with target ${target}, and targetRun ${targetRun}, on host ${ns.getHostname()}`);
     const home = `home`;
     const scriptHack = "hack.js";
     const scriptGrow = "grow.js";
     const scriptWeaken = "weaken.js";
-    if (!ns.fileExists(scriptHack, targetRun) || !ns.fileExists(scriptWeaken, targetRun) || !ns.fileExists(scriptGrow, targetRun)) {
-        ns.tprint(`Error, the 3 files ${scriptHack}, ${scriptGrow} and ${scriptWeaken} should exist on ${targetRun} but they don't`);
+    if (!ns.fileExists(scriptHack, targetRun) || !ns.fileExists(scriptWeaken, targetRun) ||
+        !ns.fileExists(scriptGrow, targetRun)) {
+        ns.tprint(
+            `Error, the 3 files ${scriptHack}, ${scriptGrow} and ${scriptWeaken} should exist on ${targetRun} but they don't`);
         return;
     }
     const interval = 30; // interval of security between operations
@@ -20,10 +25,11 @@ export async function main(ns) {
     const moneyThresh = maxMoney * 0.75;
     const minSec = ns.getServerMinSecurityLevel(target);
     const securityThresh = minSec + 5;
-    ns.print(`maxMoney: ${maxMoney}, thresh: ${moneyThresh}, minSec: ${minSec}, secThresh: ${securityThresh}, hackRAM: ${hackRam}, growRAM: ${growRam}, weakRAM: ${weakenRam}`);
-    let partGrow   = 1 / 6;
+    ns.print(
+        `maxMoney: ${maxMoney}, thresh: ${moneyThresh}, minSec: ${minSec}, secThresh: ${securityThresh}, hackRAM: ${hackRam}, growRAM: ${growRam}, weakRAM: ${weakenRam}`);
+    let partGrow = 1 / 6;
     let partWeaken = 5 / 6;
-    let money      = ns.getServerMoneyAvailable(target);
+    let money = ns.getServerMoneyAvailable(target);
     let security = ns.getServerSecurityLevel(target);
     if (ns.getServerMaxRam(targetRun) === 0) return;
     while (security > securityThresh || money < moneyThresh) {
@@ -34,7 +40,8 @@ export async function main(ns) {
         // recalculate times each loop, because security will vary
         const growTime = ns.getGrowTime(target);
         const weakenTime = ns.getWeakenTime(target);
-        ns.print(`looping in, hostname: ${ns.getHostname()}, targetRun: ${targetRun}, availableRam: ${availableRam}, grow: ${growTime}ms, weak: ${weakenTime} ms`);
+        ns.print(
+            `looping in, hostname: ${ns.getHostname()}, targetRun: ${targetRun}, availableRam: ${availableRam}, grow: ${growTime}ms, weak: ${weakenTime} ms`);
         var sleepTime = 0;
         // Weaken thread calculation
         let requiredWeakenThreads = Math.ceil((security - minSec) / ns.weakenAnalyze(1));
@@ -44,7 +51,8 @@ export async function main(ns) {
             ns.exec(scriptWeaken, targetRun, weakenThreads, target);
             sleepTime += weakenTime;
         }
-        ns.print(`weak threads: ${weakenThreads}, required: ${requiredWeakenThreads}, maxThreads: ${maxWeakenThreads}`);
+        ns.print(
+            `weak threads: ${weakenThreads}, required: ${requiredWeakenThreads}, maxThreads: ${maxWeakenThreads}`);
 
         availableRam = availableRam - weakenThreads * weakenRam;
         // Grow thread calc
@@ -55,7 +63,8 @@ export async function main(ns) {
             ns.exec(scriptGrow, targetRun, growThreads, target);
             sleepTime += growTime;
         }
-        ns.print(`GRow threads: ${growThreads}, required: ${requiredGrowThreads}, maxThreads: ${maxGrowThreads}`);
+        ns.print(
+            `GRow threads: ${growThreads}, required: ${requiredGrowThreads}, maxThreads: ${maxGrowThreads}`);
         await ns.sleep(sleepTime + interval);
         money = ns.getServerMoneyAvailable(target);
         security = ns.getServerSecurityLevel(target);
@@ -131,6 +140,7 @@ function calculateGrow(targetRun, target) {
 export class Operation {
     threads;
     time;
+
     constructor(threads, time) {
         this.threads = threads;
         this.time = time;

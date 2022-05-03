@@ -1,17 +1,19 @@
-/** @param {NS} ns */
-export async function main(ns) {
+import {NS} from "Bitburner";
+
+export async function main(ns: NS) {
     // how much RAM each purchased server will have
     let ram = 8; // GB
     let i = 0;
     let target = ns.args[0];
     if (target == null) {
-        var servers = ns.read("servers.txt").split("\n").map((e) => e.split(",")[0]);
-        target = ns.prompt("Target server", servers);
+        const servers = ns.read("servers.txt").split("\n").map((e) => e.split(",")[0]);
+        target = await ns.prompt("Target server", {type: "select", choices: servers});
     }
-    var scriptName = ns.args[1];
+    let scriptName: string = <string>ns.args[1];
     if (scriptName == null) {
-        var files = ns.ls('home').filter((e) => e.endsWith(".js"));
-        scriptName = ns.prompt("Script to execute?", files);
+        const files = ns.ls('home').filter((e) => e.endsWith(".js"));
+        scriptName = <string>await ns.prompt("Script to execute?",
+            {type: "select", choices: files});
     }
     let cost = ns.getPurchasedServerCost(ram);
     ns.print("Cost for a server", cost);

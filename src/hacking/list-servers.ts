@@ -1,5 +1,6 @@
-/** @param {NS} ns */
-export async function main(ns) {
+import {NS, Server} from "Bitburner";
+
+export async function main(ns: NS) {
     const list = analyzeNetwork(ns);
     const maxHack = ns.getHackingLevel();
     ns.tprintf("My hacking level is %d", maxHack);
@@ -30,7 +31,7 @@ export async function main(ns) {
             upper = b;
             sign = "=";
         } else {
-            sign ="<";
+            sign = "<";
             if (res >= 0) {
                 lower = b;
                 upper = a;
@@ -39,9 +40,11 @@ export async function main(ns) {
                 upper = b;
             }
         }
-        part1 = lower.hostname.padEnd(pad1)+` (${lower.moneyMax}, ${lower.requiredHackingSkill})`.padEnd(pad2);
-        part2 = upper.hostname.padEnd(pad1)+` (${upper.moneyMax},${upper.requiredHackingSkill})`.padEnd(pad2);
-        toPrint +=`\n${part1}\t${sign}\t${part2}\t[${res}]`;
+        part1 = lower.hostname.padEnd(pad1) +
+            ` (${lower.moneyMax}, ${lower.requiredHackingSkill})`.padEnd(pad2);
+        part2 = upper.hostname.padEnd(pad1) +
+            ` (${upper.moneyMax},${upper.requiredHackingSkill})`.padEnd(pad2);
+        toPrint += `\n${part1}\t${sign}\t${part2}\t[${res}]`;
         return res;
     });
     //ns.tprint(toPrint);
@@ -53,9 +56,9 @@ export async function main(ns) {
  * @param {Array<Server>} list
  * @param level the level number
  */
-function analyzeNetwork(ns, root = 'home', list = [], level = 0) {
+function analyzeNetwork(ns: NS, root: string = 'home', list: Server[] = [], level = 0): Server[] {
     const server = ns.getServer(root);
-    ns.tprint('>'.padEnd(level,'-')+root+` RAM used: ${server.ramUsed}`);
+    ns.tprint('>'.padEnd(level, '-') + root + ` RAM used: ${server.ramUsed}`);
     list[list.length] = server;
     const children = ns.scan(root);
     for (let c of children) {
@@ -65,8 +68,9 @@ function analyzeNetwork(ns, root = 'home', list = [], level = 0) {
     }
     return list;
 }
+
 /** @param {Array<Server>} list */
-function format(list) {
+function format(list: Server[]) {
     const json = JSON.stringify(list);
     return `export const allServers=${json};`
 }
