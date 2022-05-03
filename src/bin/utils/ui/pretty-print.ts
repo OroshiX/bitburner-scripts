@@ -1,5 +1,6 @@
 // https://github.com/MatiasCardullo/JavaScripts-Bitburner/blob/main/lib/graph.js
-import { allServers } from '/scripts/all-servers.js';
+import {allServers} from '/hacking/all-servers.js';
+import {NS} from "Bitburner";
 
 export const heavy = 1;
 export const tripleDash = 4
@@ -18,14 +19,15 @@ export const upLeftCurve = '╭'
 export const upRightCurve = '╮'
 export const downLeftCurve = '╰'
 export const downRightCurve = '╯'
-export const block = '█'
-export const rightBlock = '▐'
+export const block: string = '█'
+export const rightBlock: string = '▐'
 export const leftBlock = '▌'
 export const downBlock = '▄';
+
 //'╶', '╴'
 
 /** @param {NS} ns */
-export async function main(ns) {
+export async function main(ns: NS) {
     ns.clearLog();
     //    ns.tprint(bar(0.455, 50, true))
     //    let box1 = box(null, null, "this,is a,box".split(','));
@@ -34,18 +36,18 @@ export async function main(ns) {
     //    let myTable = table([[1, 2, 3], [4, 5, 6], [6, 7, 8]], "all");
     //    ns.tprint(concatGraphs(myTable, boxes, ' '))
     //    ns.tprint(table(stringToMatrix(ns.read("/augments/augsPrice.txt")), "first"))
-    var props;
+    let props: string[];
     if (ns.args.length > 0) {
-        props = ns.args;
+        props = ns.args as string[];
     } else {
         props = [];
-        var leftProps = Object.keys(allServers[0]).sort();
+        const leftProps = Object.keys(allServers[0]).sort();
         await chooseProperty(props, leftProps, ns);
-        while (await ns.prompt("Add more?", { type: "boolean" })) {
+        while (await ns.prompt("Add more?", {type: "boolean"})) {
             await chooseProperty(props, leftProps, ns);
         }
     }
-    var pretty = table(objectToTable(allServers, props));
+    const pretty = table(objectToTable(allServers, props));
     ns.tprint("\n" + pretty);
     ns.print("\n" + pretty);
     ns.tprint(`Next time you can run the command\n\trun ${ns.getScriptName()} ${props.join(" ")}`);
@@ -67,16 +69,16 @@ async function chooseProperty(chosen, available, ns) {
     }
 }
 
-/** @param {List<Any>} list 
- * @param {List<String>} properties
-*/
-function objectToTable(list, properties) {
-    var res = [];
+/** @param {any[]} list
+ * @param {string[]} properties
+ */
+function objectToTable(list: any[], properties: string[]) {
+    let res: string[][] = [];
     res[0] = properties;
-    for (var i = 1; i <= list.length; i++) {
-        var row = [];
-        var item = list[i - 1];
-        for (var k = 0; k < properties.length; k++) {
+    for (let i = 1; i <= list.length; i++) {
+        const row: any[] = [];
+        const item = list[i - 1];
+        for (let k = 0; k < properties.length; k++) {
             row[k] = item[properties[k]];
         }
         res[i] = row;
@@ -85,7 +87,8 @@ function objectToTable(list, properties) {
 }
 
 export function graphBar(v, array, max = 0, min = 1000000000000, sustractMin = false) {
-    let line = ""; let output = "";
+    let line = "";
+    let output = "";
     for (let i = 0; i < array.length; i++) {
         if (array[i] > max) {
             max = array[i]
@@ -96,7 +99,7 @@ export function graphBar(v, array, max = 0, min = 1000000000000, sustractMin = f
     }
     let barHeight
     for (let i = v; i > -1; i--) {
-        for (var j = 0; j < array.length; j++) {
+        for (let j = 0; j < array.length; j++) {
             barHeight = array[j] / max * v;
             if (barHeight > i)
                 line += block;
@@ -127,13 +130,15 @@ export function fluctuation(h, v, array) {
 
 export function bar(value = 0, length = 100, reverse = false) {
     let aux = length * value;
-    let array = []
-    let string = ""
+    let array: string[] = []
+    let string: string
     for (let j = 0; j < length; j++) {
         if (aux >= 1) {
-            array.push(block); aux--;
+            array.push(block);
+            aux--;
         } else if (aux >= 1 / 2) {
-            array.push(leftBlock); aux--;
+            array.push(leftBlock);
+            aux--;
         } else {
             array.push('-');
         }
@@ -146,7 +151,7 @@ export function bar(value = 0, length = 100, reverse = false) {
 
 export function box(h = 0, v = 0, text = null, aline = "left") {
     let line = "";
-    let textArray = []
+    let textArray: any[] = []
     if (text != null) {
         if (typeof (text) === 'string')
             textArray.push(text)
@@ -158,7 +163,8 @@ export function box(h = 0, v = 0, text = null, aline = "left") {
             try {
                 if (h < textArray[i].length)
                     h = textArray[i].length;
-            } catch { }
+            } catch {
+            }
         }
     }
 
@@ -181,7 +187,8 @@ export function table(matrix, horizontalSeparator = "", aline = "left") {
     let rows = matrix.length;
     let columns = matrix[0].length;
     let lengthPerColumn = new Array(columns).fill(0);
-    let alinePerColumn; let separatorPerRow = [];
+    let alinePerColumn;
+    let separatorPerRow: number[] = [];
     let separator;
     for (let i = 0; i < rows; i++) {
         for (let j = 0; j < matrix[i].length; j++) {
@@ -232,7 +239,8 @@ export function table(matrix, horizontalSeparator = "", aline = "left") {
         line += "\n"
         if (i < rows - 1) {
             if (all || separatorPerRow.includes(i))
-                line += lineHorizontal([verticalLeft, verticalRight], lengthPerColumn, center) + "\n"
+                line +=
+                    lineHorizontal([verticalLeft, verticalRight], lengthPerColumn, center) + "\n"
         }
     }
     line += lineHorizontal([downLeft, downRight], lengthPerColumn, horizontalDown)
@@ -240,7 +248,7 @@ export function table(matrix, horizontalSeparator = "", aline = "left") {
     return line;
 }
 
-export function lineHorizontal(char, h, char2 = null) {
+export function lineHorizontal(char, h, char2: string | null = null) {
     //let debug = 1;
     let line = char[0]
     if (char2 == null) {
@@ -263,8 +271,8 @@ export function lineHorizontal(char, h, char2 = null) {
     return line;
 }
 
-export function stringToMatrix(string, firstSplit = '\n', secondSplit = ',') {
-    let matrix = [];
+export function stringToMatrix(string: string, firstSplit = '\n', secondSplit = ',') {
+    let matrix: string[][] = [];
     string.split(firstSplit).forEach((l) => matrix.push(l.split(secondSplit)))
     return matrix
 }
@@ -285,7 +293,8 @@ export function alignString(input, length, align) {
 }
 
 export function concatGraphs(string1 = "", string2 = "", space = "") {
-    let line = ""; let output = ""
+    let line = "";
+    let output = ""
     let array1 = string1.split('\n')
     let array2 = string2.split('\n')
     let length1 = array1[0].length

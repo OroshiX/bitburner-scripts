@@ -73,7 +73,7 @@ export async function main(ns: NS) {
                 ns.nuke(s.hostname);
             }
         }
-        if (s.hasAdminRights && s.maxRam > 0) {
+        if ((s.hasAdminRights || s.purchasedByPlayer) && s.maxRam > 0) {
             const ramPerThread = ns.getScriptRam(script, s.hostname);
             if (ramPerThread === 0) {
                 ns.print(`The host ${s.hostname} said that script ${script} does not exist...`)
