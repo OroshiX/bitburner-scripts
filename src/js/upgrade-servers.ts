@@ -1,6 +1,8 @@
 import {NS} from "Bitburner";
+import {TermLogger} from "/lib/Helpers";
 
 export async function main(ns: NS) {
+    const logger = new TermLogger(ns);
     let choices: string[] = [];
     let maxRam = ns.getPurchasedServerMaxRam();
     let i = 3;
@@ -32,6 +34,7 @@ export async function main(ns: NS) {
         if (purchased.maxRam <= removeBelow) {
             ns.killall(s);
             ns.deleteServer(s);
+            logger.info(`Deleted server ${s}`)
         }
     }
     const costServer = ns.getPurchasedServerCost(targetRam);
@@ -39,6 +42,7 @@ export async function main(ns: NS) {
         while (ns.getServerMoneyAvailable('home') < costServer) {
             await ns.sleep(30000);
         }
-        ns.purchaseServer(`a-serv-${targetRam}`, targetRam);
+        let purchased = ns.purchaseServer(`a-serv-${targetRam}`, targetRam);
+        logger.info(`Bought server ${purchased} with ${targetRam}G RAM`)
     }
 }

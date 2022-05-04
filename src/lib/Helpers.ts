@@ -34,18 +34,38 @@ class TermLogger {
         this.ns = ns;
     }
 
+    /**
+     * Prints an info message to the terminal
+     * @param msg
+     * @param args
+     */
     info(msg: string, ...args: string[]) {
         this.ns.tprintf(`${TermLogger.INFO_LITERAL} ${msg}`, ...args);
     }
 
+    /**
+     * Prints a warning message to the terminal
+     * @param msg
+     * @param args
+     */
     warn(msg: string, ...args: string[]) {
         this.ns.tprintf(`${TermLogger.WARN_LITERAL} ${msg}`, ...args);
     }
 
+    /**
+     * Prints an error message to the terminal
+     * @param msg
+     * @param args
+     */
     err(msg: string, ...args: string[]) {
         this.ns.tprintf(`${TermLogger.ERR_LITERAL} ${msg}`, ...args);
     }
 
+    /**
+     * Prints a log message to the terminal
+     * @param msg
+     * @param args
+     */
     log(msg: string, ...args: string[]) {
         this.ns.tprintf(`${TermLogger.TRACE_LITERAL} ${msg}`, ...args);
     }

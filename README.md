@@ -147,8 +147,6 @@ links are correct when generating `.ns` files.
 
 ### Files
 
-- `src/bin/sayHelloTs.ts`: A sample script referencing utils and logging
-  dummy string to the terminal to test the setup.
 - `src/bin/utils/initRepo.ts`: A simple script with no references. Used
   to init the repo the first time when no files are available on the
   game home server.
