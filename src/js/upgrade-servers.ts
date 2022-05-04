@@ -36,7 +36,7 @@ export async function main(ns: NS) {
     }
     const costServer = ns.getPurchasedServerCost(targetRam);
     while (ns.getPurchasedServers().length < ns.getPurchasedServerLimit()) {
-        while (ns.getPlayer().money < costServer) {
+        while (ns.getServerMoneyAvailable('home') < costServer) {
             await ns.sleep(30000);
         }
         ns.purchaseServer(`a-serv-${targetRam}`, targetRam);

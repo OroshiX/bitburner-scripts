@@ -48,7 +48,7 @@ export async function main(ns: NS) {
         return res;
     });
     //ns.tprint(toPrint);
-    await ns.write("/hacking/all-servers.js", format(list), "w");
+    await ns.write("/js/all-servers.js", format(list), "w");
 }
 
 /** @param {NS} ns

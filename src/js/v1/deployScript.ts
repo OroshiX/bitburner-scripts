@@ -1,4 +1,4 @@
-import {allServers} from '/hacking/all-servers.js';
+import {allServers} from '/js/all-servers.js';
 /** @param {NS} ns */
 export async function main(ns) {
     let list = ns.scan();

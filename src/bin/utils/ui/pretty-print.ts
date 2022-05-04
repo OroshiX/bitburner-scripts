@@ -1,5 +1,5 @@
 // https://github.com/MatiasCardullo/JavaScripts-Bitburner/blob/main/lib/graph.js
-import {allServers} from '/hacking/all-servers.js';
+import {allServers} from '/js/all-servers.js';
 import {NS} from "Bitburner";
 
 export const heavy = 1;

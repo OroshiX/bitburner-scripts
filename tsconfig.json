@@ -8,8 +8,8 @@
       "/lib/*": [
         "lib/*"
       ],
-      "/hacking/*": [
-        "hacking/*"
+      "/js/*": [
+        "js/*"
       ]
     },
     "outDir": "build/",

@@ -1,4 +1,4 @@
-import {allServers} from '/hacking/all-servers.js';
+import {allServers} from '/js/all-servers.js';
 import {NS} from "Bitburner";
 
 /** @param {NS} ns */
