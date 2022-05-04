@@ -3,10 +3,12 @@ import {NS} from "Bitburner";
 export async function main(ns: NS) {
     let choices: string[] = [];
     let maxRam = ns.getPurchasedServerMaxRam();
-    for (let i = 3; i < 32; i++) {
-        let ram = (2 ** i);
-        if (ram > maxRam) break;
-        choices[choices.length] = ram.toFixed();
+    let i = 3;
+    let currentRam = 2 ** i;
+    while (currentRam <= maxRam) {
+        choices[choices.length] = currentRam.toFixed();
+        i++;
+        currentRam = 2 ** i;
     }
     let targetRamSt: string = <string>await ns.prompt("RAM for newly purchased servers: ",
         {type: "select", choices: choices});

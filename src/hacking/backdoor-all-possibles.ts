@@ -49,24 +49,24 @@ export async function main(ns: NS) {
                 ns.print("Opening ports on server " + s + ", needs " + s.numOpenPortsRequired +
                     " to open");
                 if (!s.ftpPortOpen && ns.fileExists('FTPCrack.exe', 'home')) {
-                    ns.ftpcrack(s);
+                    ns.ftpcrack(s.hostname);
                 }
                 if (!s.sshPortOpen && ns.fileExists('BrunteSSH.exe', 'home')) {
-                    ns.brutessh(s);
+                    ns.brutessh(s.hostname);
                 }
                 if (!s.sqlPortOpen && ns.fileExists('SQLInject.exe', 'home')) {
-                    ns.sqlinject(s);
+                    ns.sqlinject(s.hostname);
                 }
                 if (!s.httpPortOpen && ns.fileExists('HTTPWorm.exe', 'home')) {
-                    ns.httpworm(s);
+                    ns.httpworm(s.hostname);
                 }
                 if (!s.smtpPortOpen && ns.fileExists('relaySMTP.exe', 'home')) {
-                    ns.relaysmtp(s);
+                    ns.relaysmtp(s.hostname);
                 }
                 ns.print("--> Now " + s + " has " + s.openPortCount + " ports opened");
                 if (s.openPortCount >= s.numOpenPortsRequired) {
                     ns.print("nuking it...");
-                    ns.nuke(s);
+                    ns.nuke(s.hostname);
                 }
             } else {
                 ns.print("Nuking server " + s.hostname);
@@ -79,8 +79,8 @@ export async function main(ns: NS) {
                 ns.print(`The host ${s.hostname} said that script ${script} does not exist...`)
                 continue;
             }
-            var availableRam = s.maxRam - s.ramUsed;
-            var possibleThreads = Math.floor(availableRam / ramPerThread);
+            const availableRam = s.maxRam - s.ramUsed;
+            const possibleThreads = Math.floor(availableRam / ramPerThread);
             // scp to server
             await ns.scp([script, 'hack.js', 'grow.js', 'weaken.js'], 'home', s.hostname);
 

@@ -10,7 +10,7 @@ echo "$jsFiles" | while read -r line; do
 #  sed -re 's/(import.*\"\/.*)\"/\1\.ns\"/g' "$line" > "${line%.*}.ns"
 #  sed -i 's/(import \{\s*\w+\s*\}\s*from\s*")src(\/.+")/$1$2/g' "$line"
   perl -pi -e 's/(import \{\s*\w+\s*\}\s*from\s*")src(\/.+")/$1$2/g' "$line"
-  mv "$line" "${line%.*}.js"
+#  mv "$line" "${line%.*}.js"
 done
 
 cd - || exit
