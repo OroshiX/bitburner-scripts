@@ -1,5 +1,6 @@
 /** @param {NS} ns */
 import {NS} from "Bitburner";
+import {scriptGrow, scriptHack, scriptWeaken} from "/js/script-names";
 
 export async function main(ns: NS) {
     const target: string = <string>ns.args[0] ?? 'iron-gym';
@@ -7,9 +8,6 @@ export async function main(ns: NS) {
     ns.print(
         `running bis-organizer with target ${target}, and targetRun ${targetRun}, on host ${ns.getHostname()}`);
     const home = `home`;
-    const scriptHack = "hack.js";
-    const scriptGrow = "grow.js";
-    const scriptWeaken = "weaken.js";
     if (!ns.fileExists(scriptHack, targetRun) || !ns.fileExists(scriptWeaken, targetRun) ||
         !ns.fileExists(scriptGrow, targetRun)) {
         ns.tprint(

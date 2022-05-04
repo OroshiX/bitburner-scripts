@@ -1,10 +1,11 @@
 import {NS} from "Bitburner";
+import {scriptGrow, scriptHack, scriptWeaken} from "/js/script-names";
 
 export async function main(ns: NS) {
     const target: string = <string>ns.args[0] ?? 'iron-gym';
-    const hackRam = ns.getScriptRam('hack.js');
-    const growRam = ns.getScriptRam('grow.js');
-    const weakenRam = ns.getScriptRam('weaken.js');
+    const hackRam = ns.getScriptRam(scriptHack);
+    const growRam = ns.getScriptRam(scriptGrow);
+    const weakenRam = ns.getScriptRam(scriptWeaken);
 
     const moneyThresh = ns.getServerMaxMoney(target) * 0.75;
     const securityThresh = ns.getServerMinSecurityLevel(target) + 5;
@@ -41,20 +42,20 @@ export async function main(ns: NS) {
         let sleepTime;
         if (security > securityThresh) {
             // server security is above our threshold, so weaken it
-            scriptName = 'weaken.js';
+            scriptName = scriptWeaken;
             weakenThreads = Math.min(maxThreads, weakenThreads);
             threads = weakenThreads;
             sleepTime = weakenTime;
         } else if (money < moneyThresh) {
             // if the server's money is less than our threshold, grow it
             growThreads = Math.min(maxThreads, growThreads);
-            scriptName = 'grow.js';
+            scriptName = scriptGrow;
             threads = growThreads;
             sleepTime = growTime;
         } else {
             // hack it
             hackThreads = Math.min(maxThreads, hackThreads);
-            scriptName = 'hack.js';
+            scriptName = scriptHack;
             threads = hackThreads;
             sleepTime = hackTime;
         }

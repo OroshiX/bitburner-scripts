@@ -1,5 +1,6 @@
 import {allServers} from "/js/all-servers.js";
 import {NS, Server} from "Bitburner";
+import {scriptGrow, scriptHack, scriptWeaken} from "/js/script-names";
 
 /** @param {NS} ns */
 export async function main(ns: NS) {
@@ -82,7 +83,7 @@ export async function main(ns: NS) {
             const availableRam = s.maxRam - s.ramUsed;
             const possibleThreads = Math.floor(availableRam / ramPerThread);
             // scp to server
-            await ns.scp([script, 'hack.js', 'grow.js', 'weaken.js'], 'home', s.hostname);
+            await ns.scp([script, scriptHack, scriptGrow, scriptWeaken], 'home', s.hostname);
 
             // Server at max capacity?
             if (possibleThreads <= 0) {
