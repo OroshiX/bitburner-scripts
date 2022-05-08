@@ -1,4 +1,4 @@
-import {allServers} from "/js/all-servers.js";
+import {allServers} from "/js/all-servers";
 import {NS, Server} from "Bitburner";
 import {scriptGrow, scriptHack, scriptWeaken} from "/js/script-names";
 
@@ -75,6 +75,9 @@ export async function main(ns: NS) {
             }
         }
         if ((s.hasAdminRights || s.purchasedByPlayer) && s.maxRam > 0) {
+            ns.print(`scp-ing files ${script}, ${scriptHack}, ${scriptGrow} and ${scriptWeaken} from home to ${s.hostname}`)
+            // scp to server
+            await ns.scp([script, scriptHack, scriptGrow, scriptWeaken], 'home', s.hostname);
             const ramPerThread = ns.getScriptRam(script, s.hostname);
             if (ramPerThread === 0) {
                 ns.print(`The host ${s.hostname} said that script ${script} does not exist...`)
@@ -82,8 +85,6 @@ export async function main(ns: NS) {
             }
             const availableRam = s.maxRam - s.ramUsed;
             const possibleThreads = Math.floor(availableRam / ramPerThread);
-            // scp to server
-            await ns.scp([script, scriptHack, scriptGrow, scriptWeaken], 'home', s.hostname);
 
             // Server at max capacity?
             if (possibleThreads <= 0) {
@@ -94,7 +95,7 @@ export async function main(ns: NS) {
             const randomMostProfitable = targets[Math.floor(Math.random() * targets.length)];
             ns.tprint(
                 `Starting script ${script} on server ${s.hostname} with target ${randomMostProfitable}`);
-            ns.exec(script, s.hostname, 1, randomMostProfitable);
+            ns.exec(script, s.hostname, 1, randomMostProfitable, s.hostname, scriptGrow, scriptHack, scriptWeaken);
         }
 
     }
