@@ -3,7 +3,7 @@ import {NS, Server} from "Bitburner";
 export async function main(ns: NS) {
     const list = analyzeNetwork(ns);
     const maxHack = ns.getHackingLevel();
-    ns.tprintf("My hacking level is %d", maxHack);
+    ns.printf("My hacking level is %d", maxHack);
     let toPrint = "";
     // {Server} server
     list.sort((a, b) => {
@@ -56,9 +56,9 @@ export async function main(ns: NS) {
  * @param {Array<Server>} list
  * @param level the level number
  */
-function analyzeNetwork(ns: NS, root: string = 'home', list: Server[] = [], level = 0): Server[] {
+export function analyzeNetwork(ns: NS, root: string = 'home', list: Server[] = [], level = 0): Server[] {
     const server = ns.getServer(root);
-    ns.tprint('>'.padEnd(level, '-') + root + ` RAM used: ${server.ramUsed}`);
+    ns.print('>'.padEnd(level, '-') + root + ` RAM used: ${server.ramUsed}`);
     list[list.length] = server;
     const children = ns.scan(root);
     for (let c of children) {

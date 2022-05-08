@@ -1,11 +1,12 @@
-import {allServers} from "/js/all-servers";
 import {NS, Server} from "Bitburner";
 import {scriptGrow, scriptHack, scriptWeaken} from "/js/script-names";
+import {analyzeNetwork} from "/js/list-servers";
 
 /** @param {NS} ns */
 export async function main(ns: NS) {
     // var file = await ns.read("servers.txt");
-    const list = allServers;
+    const list = analyzeNetwork(ns);
+    getRootAccess(list, ns);
     let i = 0;
     let next: string = <string>ns.args[i];
     let targets: string[] = [];
@@ -44,38 +45,9 @@ export async function main(ns: NS) {
     ns.tprint(`Next time you can call :\n\trun ${ns.getScriptName()} ${targets.join(" ")}`);
     for (const s of list) {
         ns.print(`server ${s.hostname}`);
-        if (!s.hasAdminRights) {
-            ns.print(`${s.hostname} has no admin rights`)
-            if (s.numOpenPortsRequired > s.openPortCount) {
-                ns.print("Opening ports on server " + s + ", needs " + s.numOpenPortsRequired +
-                    " to open");
-                if (!s.ftpPortOpen && ns.fileExists('FTPCrack.exe', 'home')) {
-                    ns.ftpcrack(s.hostname);
-                }
-                if (!s.sshPortOpen && ns.fileExists('BrunteSSH.exe', 'home')) {
-                    ns.brutessh(s.hostname);
-                }
-                if (!s.sqlPortOpen && ns.fileExists('SQLInject.exe', 'home')) {
-                    ns.sqlinject(s.hostname);
-                }
-                if (!s.httpPortOpen && ns.fileExists('HTTPWorm.exe', 'home')) {
-                    ns.httpworm(s.hostname);
-                }
-                if (!s.smtpPortOpen && ns.fileExists('relaySMTP.exe', 'home')) {
-                    ns.relaysmtp(s.hostname);
-                }
-                ns.print("--> Now " + s + " has " + s.openPortCount + " ports opened");
-                if (s.openPortCount >= s.numOpenPortsRequired) {
-                    ns.print("nuking it...");
-                    ns.nuke(s.hostname);
-                }
-            } else {
-                ns.print("Nuking server " + s.hostname);
-                ns.nuke(s.hostname);
-            }
-        }
-        if ((s.hasAdminRights || s.purchasedByPlayer) && s.maxRam > 0) {
-            ns.print(`scp-ing files ${script}, ${scriptHack}, ${scriptGrow} and ${scriptWeaken} from home to ${s.hostname}`)
+        if ((ns.hasRootAccess(s.hostname) || s.purchasedByPlayer) && s.maxRam > 0) {
+            ns.print(
+                `scp-ing files ${script}, ${scriptHack}, ${scriptGrow} and ${scriptWeaken} from home to ${s.hostname}`)
             // scp to server
             await ns.scp([script, scriptHack, scriptGrow, scriptWeaken], 'home', s.hostname);
             const ramPerThread = ns.getScriptRam(script, s.hostname);
@@ -95,42 +67,68 @@ export async function main(ns: NS) {
             const randomMostProfitable = targets[Math.floor(Math.random() * targets.length)];
             ns.tprint(
                 `Starting script ${script} on server ${s.hostname} with target ${randomMostProfitable}`);
-            ns.exec(script, s.hostname, 1, randomMostProfitable, s.hostname, scriptGrow, scriptHack, scriptWeaken);
+            ns.exec(script, s.hostname, 1, randomMostProfitable, s.hostname, scriptGrow, scriptHack,
+                scriptWeaken);
         }
 
     }
+}
+
+function getRootAccess(list: Server[], ns: NS) {
+    let ftp = programExists('FTPCrack.exe', ns);
+    let ssh = programExists('BruteSSH.exe', ns);
+    let sql = programExists('SQLInject.exe', ns);
+    let http = programExists('HTTPWorm.exe', ns);
+    let smtp = programExists('relaySMTP.exe', ns);
+    for (let server of list) {
+        if (!server.hasAdminRights) {
+            if (server.numOpenPortsRequired > server.openPortCount) {
+                ns.print(
+                    `Opening ports on server ${server.hostname} (${server.openPortCount}/${server.numOpenPortsRequired})`);
+                if (!server.ftpPortOpen && ftp) {
+                    ns.ftpcrack(server.hostname);
+                    server.openPortCount++;
+                }
+                if (!server.sshPortOpen && ssh) {
+                    ns.brutessh(server.hostname);
+                    server.openPortCount++;
+                }
+                if (!server.sqlPortOpen && sql) {
+                    ns.sqlinject(server.hostname);
+                    server.openPortCount++;
+                }
+                if (!server.httpPortOpen && http) {
+                    ns.httpworm(server.hostname);
+                    server.openPortCount++;
+                }
+                if (!server.smtpPortOpen && smtp) {
+                    ns.relaysmtp(server.hostname);
+                    server.openPortCount++;
+                }
+                ns.print(`--> Now ${server.hostname} has ${server.openPortCount} open ports`);
+                if (server.openPortCount >= server.numOpenPortsRequired) {
+                    ns.print("Now can nuke it...");
+                    ns.nuke(server.hostname);
+                }
+            } else {
+                ns.print(`Nuking server ${server.hostname}`);
+                ns.nuke(server.hostname);
+            }
+        }
+    }
+}
+
+function programExists(name: string, ns: NS): boolean {
+    let res = ns.fileExists(name, 'home');
+    if (!res) {
+        ns.print(`Program ${name} does not exist`)
+    }
+    return res;
 }
 
 function getSortedListServers(list: Server[], skill: number) {
-    list = list.filter((e) => e.requiredHackingSkill <= skill && e.moneyMax > 0);
+    list =
+        list.filter((e) => e.requiredHackingSkill <= skill && e.moneyMax > 0 && e.hasAdminRights);
     list.sort((a, b) => b.moneyMax - a.moneyMax);
     return list;
-}
-
-function getMostProfitableTarget(list: Server[], skill: number, number: number = 1) {
-    const most: Server[] = [];
-    let i = 0;
-    // init N values for the n most profitable servers (N first okayish values)
-    while (most.length < number && i < list.length) {
-        if (list[i].requiredHackingSkill <= skill) {
-            most[most.length] = list[i];
-        }
-        i++;
-    }
-    most.sort((a, b) => a.moneyMax - b.moneyMax);
-
-    for (let l of list) {
-        if (l.moneyMax === 0) {
-            continue;
-        }
-        if (l.requiredHackingSkill > skill) {
-            continue;
-        }
-        if (l.moneyMax > most[0].moneyMax) {
-            // the least profitable should be replaced
-            most.splice(0, 1, l);
-            most.sort((a, b) => a.moneyMax - b.moneyMax);
-        }
-    }
-    return most;
 }
