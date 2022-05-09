@@ -51,7 +51,7 @@ export async function main(ns: NS) {
  * @param root the root node to analyze
  * @param list the collected nodes
  */
-function analyzeNetwork(ns: NS, root: string = 'home', list: ServerChars[] = []): ServerChars[] {
+function analyzeNetwork(ns: NS, root: string = "home", list: ServerChars[] = []): ServerChars[] {
     const server = ns.getServer(root);
     ns.getServerSecurityLevel(root);
     list[list.length] =
@@ -61,7 +61,7 @@ function analyzeNetwork(ns: NS, root: string = 'home', list: ServerChars[] = [])
     const children = ns.scan(root);
     for (const c of children) {
         if (list.findIndex((e) => e.name === c) === -1) {
-            analyzeNetwork(ns, c, list)
+            analyzeNetwork(ns, c, list);
         }
     }
     return list;

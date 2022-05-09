@@ -11,7 +11,7 @@ export async function main(ns: NS) {
     }
     let scriptName: string = <string>ns.args[1];
     if (scriptName == null) {
-        const files = ns.ls('home').filter((e) => e.endsWith(".js"));
+        const files = ns.ls("home").filter((e) => e.endsWith(".js"));
         scriptName = <string>await ns.prompt("Script to execute?",
             {type: "select", choices: files});
     }

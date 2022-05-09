@@ -1,28 +1,28 @@
 // https://github.com/MatiasCardullo/JavaScripts-Bitburner/blob/main/lib/graph.js
-import {allServers} from '/js/all-servers.js';
+import {allServers} from "/js/all-servers.js";
 import {NS} from "Bitburner";
 
 export const heavy = 1;
-export const tripleDash = 4
-export const horizontal = '─' // U+2500
-export const vertical = '│' // U+2502
-export const upLeft = '┌'//U+250C
-export const upRight = '┐'//U+2510
-export const downLeft = '└'//U+2514
-export const downRight = '┘'//U+2518
-export const verticalLeft = '├'
-export const verticalRight = '┤'
-export const horizontalDown = '┴'
-export const horizontalUp = '┬'
-export const center = '┼'
-export const upLeftCurve = '╭'
-export const upRightCurve = '╮'
-export const downLeftCurve = '╰'
-export const downRightCurve = '╯'
-export const block: string = '█'
-export const rightBlock: string = '▐'
-export const leftBlock = '▌'
-export const downBlock = '▄';
+export const tripleDash = 4;
+export const horizontal = "─"; // U+2500
+export const vertical = "│"; // U+2502
+export const upLeft = "┌";//U+250C
+export const upRight = "┐";//U+2510
+export const downLeft = "└";//U+2514
+export const downRight = "┘";//U+2518
+export const verticalLeft = "├";
+export const verticalRight = "┤";
+export const horizontalDown = "┴";
+export const horizontalUp = "┬";
+export const center = "┼";
+export const upLeftCurve = "╭";
+export const upRightCurve = "╮";
+export const downLeftCurve = "╰";
+export const downRightCurve = "╯";
+export const block: string = "█";
+export const rightBlock: string = "▐";
+export const leftBlock = "▌";
+export const downBlock = "▄";
 
 //'╶', '╴'
 
@@ -91,13 +91,13 @@ export function graphBar(v, array, max = 0, min = 1000000000000, sustractMin = f
     let output = "";
     for (let i = 0; i < array.length; i++) {
         if (array[i] > max) {
-            max = array[i]
+            max = array[i];
         }
         if (array[i] < min) {
-            min = array[i]
+            min = array[i];
         }
     }
-    let barHeight
+    let barHeight;
     for (let i = v; i > -1; i--) {
         for (let j = 0; j < array.length; j++) {
             barHeight = array[j] / max * v;
@@ -106,10 +106,10 @@ export function graphBar(v, array, max = 0, min = 1000000000000, sustractMin = f
             else if (barHeight + 0.5 > i)
                 line += downBlock;
             else
-                line += ' ';
+                line += " ";
         }
-        output += line
-        line = '\n';
+        output += line;
+        line = "\n";
     }
     return output;
 }
@@ -130,8 +130,8 @@ export function fluctuation(h, v, array) {
 
 export function bar(value = 0, length = 100, reverse = false) {
     let aux = length * value;
-    let array: string[] = []
-    let string: string
+    let array: string[] = [];
+    let string: string;
     for (let j = 0; j < length; j++) {
         if (aux >= 1) {
             array.push(block);
@@ -140,25 +140,25 @@ export function bar(value = 0, length = 100, reverse = false) {
             array.push(leftBlock);
             aux--;
         } else {
-            array.push('-');
+            array.push("-");
         }
     }
-    string = array.toString()
+    string = array.toString();
     if (reverse)
-        string = array.reverse().toString().replace(leftBlock, rightBlock)
-    return string.replaceAll(',', '');
+        string = array.reverse().toString().replace(leftBlock, rightBlock);
+    return string.replaceAll(",", "");
 }
 
 export function box(h = 0, v = 0, text = null, aline = "left") {
     let line = "";
-    let textArray: any[] = []
+    let textArray: any[] = [];
     if (text != null) {
-        if (typeof (text) === 'string')
-            textArray.push(text)
+        if (typeof (text) === "string")
+            textArray.push(text);
         else
-            textArray = text
+            textArray = text;
         if (v < textArray.length)
-            v = textArray.length
+            v = textArray.length;
         for (let i = 0; i < v; i++) {
             try {
                 if (h < textArray[i].length)
@@ -168,21 +168,21 @@ export function box(h = 0, v = 0, text = null, aline = "left") {
         }
     }
 
-    line += lineHorizontal([upLeft, upRight], h) + "\n"
+    line += lineHorizontal([upLeft, upRight], h) + "\n";
     for (let i = 0; i < v; i++) {
         line += vertical;
-        let aux = ""
+        let aux = "";
         if (text != null && textArray.length > i)
-            aux += textArray[i]
-        line += alignString(aux, h, aline) + vertical + "\n"
+            aux += textArray[i];
+        line += alignString(aux, h, aline) + vertical + "\n";
     }
-    line += lineHorizontal([downLeft, downRight], h)
+    line += lineHorizontal([downLeft, downRight], h);
 
     return line;
 }
 
 export function table(matrix, horizontalSeparator = "", aline = "left") {
-    let line = ""
+    let line = "";
     let all = false;
     let rows = matrix.length;
     let columns = matrix[0].length;
@@ -193,7 +193,7 @@ export function table(matrix, horizontalSeparator = "", aline = "left") {
     for (let i = 0; i < rows; i++) {
         for (let j = 0; j < matrix[i].length; j++) {
             if (matrix[i][j].toString().length > lengthPerColumn[j]) {
-                lengthPerColumn[j] = matrix[i][j].toString().length
+                lengthPerColumn[j] = matrix[i][j].toString().length;
             }
         }
     }
@@ -209,52 +209,52 @@ export function table(matrix, horizontalSeparator = "", aline = "left") {
     }
     for (let i = 0; i < separator.length; i++) {
         if (typeof (separator[i]) == "string")
-            separator[i] = separator[i].toLowerCase()
+            separator[i] = separator[i].toLowerCase();
         switch (separator[i]) {
             case "both":
-                separatorPerRow.push(rows - 2)
+                separatorPerRow.push(rows - 2);
             case "first":
-                separatorPerRow.push(0)
+                separatorPerRow.push(0);
                 break;
             case "last":
-                separatorPerRow.push(rows - 2)
+                separatorPerRow.push(rows - 2);
                 break;
             case "all":
                 all = true;
                 break;
             default:
                 if (typeof (separator[i]) == "number") {
-                    separatorPerRow.push(parseInt(separator[i]))
-                    separatorPerRow.push(parseInt(separator[i]) + 1)
+                    separatorPerRow.push(parseInt(separator[i]));
+                    separatorPerRow.push(parseInt(separator[i]) + 1);
                 }
                 break;
         }
     }
-    line += lineHorizontal([upLeft, upRight], lengthPerColumn, horizontalUp) + "\n"
+    line += lineHorizontal([upLeft, upRight], lengthPerColumn, horizontalUp) + "\n";
     for (let i = 0; i < rows; i++) {
         line += vertical;
         for (let j = 0; j < matrix[i].length; j++) {
             line += alignString(matrix[i][j], lengthPerColumn[j], alinePerColumn[j]) + vertical;
         }
-        line += "\n"
+        line += "\n";
         if (i < rows - 1) {
             if (all || separatorPerRow.includes(i))
                 line +=
-                    lineHorizontal([verticalLeft, verticalRight], lengthPerColumn, center) + "\n"
+                    lineHorizontal([verticalLeft, verticalRight], lengthPerColumn, center) + "\n";
         }
     }
-    line += lineHorizontal([downLeft, downRight], lengthPerColumn, horizontalDown)
+    line += lineHorizontal([downLeft, downRight], lengthPerColumn, horizontalDown);
 
     return line;
 }
 
 export function lineHorizontal(char, h, char2: string | null = null) {
     //let debug = 1;
-    let line = char[0]
+    let line = char[0];
     if (char2 == null) {
         //debug += h
         for (let i = 0; i < h; i++) {
-            line += horizontal
+            line += horizontal;
         }
     } else {
         for (let i = 0; i < h.length; i++) {
@@ -267,26 +267,26 @@ export function lineHorizontal(char, h, char2: string | null = null) {
             }
         }
     }
-    line += char[1]//+debug+1;
+    line += char[1];//+debug+1;
     return line;
 }
 
-export function stringToMatrix(string: string, firstSplit = '\n', secondSplit = ',') {
+export function stringToMatrix(string: string, firstSplit = "\n", secondSplit = ",") {
     let matrix: string[][] = [];
-    string.split(firstSplit).forEach((l) => matrix.push(l.split(secondSplit)))
-    return matrix
+    string.split(firstSplit).forEach((l) => matrix.push(l.split(secondSplit)));
+    return matrix;
 }
 
 export function alignString(input, length, align) {
     let output = input.toString();
     switch (align/*.toLowerCase()*/) {
         case "right":
-            output = output.padStart(length, ' ')
+            output = output.padStart(length, " ");
             break;
         case "center":
-            output = output.padStart(length / 2 + output.length / 2, ' ')
+            output = output.padStart(length / 2 + output.length / 2, " ");
         case "left":
-            output = output.padEnd(length, ' ')
+            output = output.padEnd(length, " ");
             break;
     }
     return output;
@@ -294,29 +294,29 @@ export function alignString(input, length, align) {
 
 export function concatGraphs(string1 = "", string2 = "", space = "") {
     let line = "";
-    let output = ""
-    let array1 = string1.split('\n')
-    let array2 = string2.split('\n')
-    let length1 = array1[0].length
-    let length2 = array2[0].length
-    let length = array1.length
+    let output = "";
+    let array1 = string1.split("\n");
+    let array2 = string2.split("\n");
+    let length1 = array1[0].length;
+    let length2 = array2[0].length;
+    let length = array1.length;
     if (array1.length < array2.length)
-        length = array2.length
+        length = array2.length;
     for (let i = 0; i < length; i++) {
         if (i < array1.length)
-            line += array1[i]
+            line += array1[i];
         else
-            line += "".padStart(length1, " ")
+            line += "".padStart(length1, " ");
 
-        line += space
+        line += space;
 
         if (i < array2.length)
-            line += array2[i]
+            line += array2[i];
         else
-            line += "".padStart(length2, " ")
+            line += "".padStart(length2, " ");
 
-        output += line
-        line = '\n'
+        output += line;
+        line = "\n";
     }
-    return output
+    return output;
 }

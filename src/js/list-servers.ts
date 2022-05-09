@@ -56,9 +56,10 @@ export async function main(ns: NS) {
  * @param {Array<Server>} list
  * @param level the level number
  */
-export function analyzeNetwork(ns: NS, root: string = 'home', list: Server[] = [], level = 0): Server[] {
+export function analyzeNetwork(ns: NS, root: string = "home", list: Server[] = [],
+                               level = 0): Server[] {
     const server = ns.getServer(root);
-    ns.print('>'.padEnd(level, '-') + root + ` RAM used: ${server.ramUsed}`);
+    ns.print(">".padEnd(level, "-") + root + ` RAM used: ${server.ramUsed}`);
     list[list.length] = server;
     const children = ns.scan(root);
     for (let c of children) {
@@ -72,5 +73,5 @@ export function analyzeNetwork(ns: NS, root: string = 'home', list: Server[] = [
 /** @param {Array<Server>} list */
 function format(list: Server[]) {
     const json = JSON.stringify(list);
-    return `export const allServers=${json};`
+    return `export const allServers=${json};`;
 }

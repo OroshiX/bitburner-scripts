@@ -2,7 +2,7 @@
 import {NS} from "Bitburner";
 
 export async function main(ns: NS) {
-    const target: string = <string>ns.args[0] ?? 'iron-gym';
+    const target: string = <string>ns.args[0] ?? "iron-gym";
     const targetRun: string = <string>ns.args[1] ?? ns.getHostname();
     const scriptGrow: string = <string>ns.args[2];
     const scriptHack: string = <string>ns.args[3];

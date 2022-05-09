@@ -2,7 +2,7 @@ import {NS} from "Bitburner";
 import {scriptGrow, scriptHack, scriptWeaken} from "/js/script-names";
 
 export async function main(ns: NS) {
-    const target: string = <string>ns.args[0] ?? 'iron-gym';
+    const target: string = <string>ns.args[0] ?? "iron-gym";
     const hackRam = ns.getScriptRam(scriptHack);
     const growRam = ns.getScriptRam(scriptGrow);
     const weakenRam = ns.getScriptRam(scriptWeaken);

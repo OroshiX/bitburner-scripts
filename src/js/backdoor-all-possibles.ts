@@ -35,7 +35,7 @@ export async function main(ns: NS) {
         }
     }
 
-    const scripts = ns.ls('home', ".js");
+    const scripts = ns.ls("home", ".js");
     const script: string = <string>await ns.prompt("Choose a script to deploy",
         {type: "select", choices: scripts});
     if (script === undefined) {
@@ -47,12 +47,12 @@ export async function main(ns: NS) {
         ns.print(`server ${s.hostname}`);
         if ((ns.hasRootAccess(s.hostname) || s.purchasedByPlayer) && s.maxRam > 0) {
             ns.print(
-                `scp-ing files ${script}, ${scriptHack}, ${scriptGrow} and ${scriptWeaken} from home to ${s.hostname}`)
+                `scp-ing files ${script}, ${scriptHack}, ${scriptGrow} and ${scriptWeaken} from home to ${s.hostname}`);
             // scp to server
-            await ns.scp([script, scriptHack, scriptGrow, scriptWeaken], 'home', s.hostname);
+            await ns.scp([script, scriptHack, scriptGrow, scriptWeaken], "home", s.hostname);
             const ramPerThread = ns.getScriptRam(script, s.hostname);
             if (ramPerThread === 0) {
-                ns.print(`The host ${s.hostname} said that script ${script} does not exist...`)
+                ns.print(`The host ${s.hostname} said that script ${script} does not exist...`);
                 continue;
             }
             const availableRam = s.maxRam - s.ramUsed;
@@ -75,11 +75,11 @@ export async function main(ns: NS) {
 }
 
 function getRootAccess(list: Server[], ns: NS) {
-    let ftp = programExists('FTPCrack.exe', ns);
-    let ssh = programExists('BruteSSH.exe', ns);
-    let sql = programExists('SQLInject.exe', ns);
-    let http = programExists('HTTPWorm.exe', ns);
-    let smtp = programExists('relaySMTP.exe', ns);
+    let ftp = programExists("FTPCrack.exe", ns);
+    let ssh = programExists("BruteSSH.exe", ns);
+    let sql = programExists("SQLInject.exe", ns);
+    let http = programExists("HTTPWorm.exe", ns);
+    let smtp = programExists("relaySMTP.exe", ns);
     for (let server of list) {
         if (!server.hasAdminRights) {
             if (server.numOpenPortsRequired > server.openPortCount) {
@@ -119,9 +119,9 @@ function getRootAccess(list: Server[], ns: NS) {
 }
 
 function programExists(name: string, ns: NS): boolean {
-    let res = ns.fileExists(name, 'home');
+    let res = ns.fileExists(name, "home");
     if (!res) {
-        ns.print(`Program ${name} does not exist`)
+        ns.print(`Program ${name} does not exist`);
     }
     return res;
 }

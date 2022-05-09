@@ -34,15 +34,15 @@ export async function main(ns: NS) {
         if (purchased.maxRam <= removeBelow) {
             ns.killall(s);
             ns.deleteServer(s);
-            logger.info(`Deleted server ${s}`)
+            logger.info(`Deleted server ${s}`);
         }
     }
     const costServer = ns.getPurchasedServerCost(targetRam);
     while (ns.getPurchasedServers().length < ns.getPurchasedServerLimit()) {
-        while (ns.getServerMoneyAvailable('home') < costServer) {
+        while (ns.getServerMoneyAvailable("home") < costServer) {
             await ns.sleep(30000);
         }
         let purchased = ns.purchaseServer(`a-serv-${targetRam}`, targetRam);
-        logger.info(`Bought server ${purchased} with ${targetRam}G RAM`)
+        logger.info(`Bought server ${purchased} with ${targetRam}G RAM`);
     }
 }

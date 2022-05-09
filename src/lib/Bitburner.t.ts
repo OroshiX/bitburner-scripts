@@ -4748,6 +4748,7 @@ declare module "Bitburner" {
          * ```
          * @param host - Hostname of the target server.
          * @param growthAmount - Multiplicative factor by which the server is grown. Decimal form..
+         * @param cores - The number of mores used to grow
          * @returns The amount of grow calls needed to grow the specified server by the specified amount
          */
         growthAnalyze(host: string, growthAmount: number, cores?: number): number;

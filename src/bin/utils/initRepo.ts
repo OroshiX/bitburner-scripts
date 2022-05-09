@@ -18,11 +18,11 @@ const params = {
 
 async function pullFile(
     ns: NS,
-    file: { sourceFile: string; destFile: string }
+    file: { sourceFile: string; destFile: string },
 ) {
     const manifestUrl = `${params.baseUrl}${file.sourceFile}`;
     ns.tprintf(
-        `INFO   > Downloading ${manifestUrl} -> ${file.destFile}`
+        `INFO   > Downloading ${manifestUrl} -> ${file.destFile}`,
     );
 
     if (!(await ns.wget(manifestUrl, file.destFile, "home"))) {

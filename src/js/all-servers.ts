@@ -24,7 +24,7 @@ export const allServers: Server[] = [{
     "numOpenPortsRequired": 5,
     "openPortCount": 5,
     "requiredHackingSkill": 1,
-    "serverGrowth": 1
+    "serverGrowth": 1,
 },
     {
         "cpuCores": 1,
@@ -50,7 +50,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -76,7 +76,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -102,7 +102,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -128,7 +128,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -154,7 +154,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -180,7 +180,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -206,7 +206,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -232,7 +232,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -258,7 +258,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -284,7 +284,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -310,7 +310,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -336,7 +336,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -362,7 +362,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -388,7 +388,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -414,7 +414,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -440,7 +440,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -466,7 +466,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -492,7 +492,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -518,7 +518,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -544,7 +544,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -570,7 +570,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -596,7 +596,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -622,7 +622,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -648,7 +648,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -674,7 +674,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -700,7 +700,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 0,
         "requiredHackingSkill": 1,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     },
     {
         "cpuCores": 1,
@@ -726,7 +726,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 1,
         "openPortCount": 1,
         "requiredHackingSkill": 56,
-        "serverGrowth": 0
+        "serverGrowth": 0,
     },
     {
         "cpuCores": 1,
@@ -752,7 +752,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 2,
         "openPortCount": 2,
         "requiredHackingSkill": 211,
-        "serverGrowth": 0
+        "serverGrowth": 0,
     },
     {
         "cpuCores": 1,
@@ -778,7 +778,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 3,
         "openPortCount": 5,
         "requiredHackingSkill": 343,
-        "serverGrowth": 0
+        "serverGrowth": 0,
     },
     {
         "cpuCores": 1,
@@ -804,7 +804,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 4,
         "openPortCount": 5,
         "requiredHackingSkill": 513,
-        "serverGrowth": 0
+        "serverGrowth": 0,
     },
     {
         "cpuCores": 1,
@@ -830,7 +830,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 4,
         "openPortCount": 5,
         "requiredHackingSkill": 533,
-        "serverGrowth": 0
+        "serverGrowth": 0,
     },
     {
         "cpuCores": 1,
@@ -856,7 +856,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 925,
-        "serverGrowth": 0
+        "serverGrowth": 0,
     },
     {
         "cpuCores": 1,
@@ -882,7 +882,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 0,
         "openPortCount": 1,
         "requiredHackingSkill": 1,
-        "serverGrowth": 3000
+        "serverGrowth": 3000,
     },
     {
         "cpuCores": 1,
@@ -908,7 +908,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 0,
         "openPortCount": 1,
         "requiredHackingSkill": 1,
-        "serverGrowth": 5
+        "serverGrowth": 5,
     },
     {
         "cpuCores": 1,
@@ -934,7 +934,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 0,
         "openPortCount": 1,
         "requiredHackingSkill": 5,
-        "serverGrowth": 10
+        "serverGrowth": 10,
     },
     {
         "cpuCores": 1,
@@ -960,7 +960,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 0,
         "openPortCount": 1,
         "requiredHackingSkill": 10,
-        "serverGrowth": 20
+        "serverGrowth": 20,
     },
     {
         "cpuCores": 1,
@@ -986,7 +986,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 0,
         "openPortCount": 0,
         "requiredHackingSkill": 20,
-        "serverGrowth": 25
+        "serverGrowth": 25,
     },
     {
         "cpuCores": 1,
@@ -1012,7 +1012,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 0,
         "openPortCount": 0,
         "requiredHackingSkill": 30,
-        "serverGrowth": 20
+        "serverGrowth": 20,
     },
     {
         "cpuCores": 1,
@@ -1038,7 +1038,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 0,
         "openPortCount": 1,
         "requiredHackingSkill": 40,
-        "serverGrowth": 40
+        "serverGrowth": 40,
     },
     {
         "cpuCores": 1,
@@ -1064,7 +1064,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 1,
         "openPortCount": 2,
         "requiredHackingSkill": 50,
-        "serverGrowth": 25
+        "serverGrowth": 25,
     },
     {
         "cpuCores": 1,
@@ -1090,7 +1090,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 1,
         "openPortCount": 1,
         "requiredHackingSkill": 75,
-        "serverGrowth": 40
+        "serverGrowth": 40,
     },
     {
         "cpuCores": 1,
@@ -1116,7 +1116,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 1,
         "openPortCount": 2,
         "requiredHackingSkill": 80,
-        "serverGrowth": 30
+        "serverGrowth": 30,
     },
     {
         "cpuCores": 1,
@@ -1142,7 +1142,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 1,
         "openPortCount": 1,
         "requiredHackingSkill": 100,
-        "serverGrowth": 20
+        "serverGrowth": 20,
     },
     {
         "cpuCores": 1,
@@ -1168,7 +1168,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 2,
         "openPortCount": 2,
         "requiredHackingSkill": 100,
-        "serverGrowth": 35
+        "serverGrowth": 35,
     },
     {
         "cpuCores": 1,
@@ -1194,7 +1194,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 2,
         "openPortCount": 2,
         "requiredHackingSkill": 253,
-        "serverGrowth": 30
+        "serverGrowth": 30,
     },
     {
         "cpuCores": 1,
@@ -1220,7 +1220,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 2,
         "openPortCount": 2,
         "requiredHackingSkill": 150,
-        "serverGrowth": 30
+        "serverGrowth": 30,
     },
     {
         "cpuCores": 1,
@@ -1246,7 +1246,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 2,
         "openPortCount": 2,
         "requiredHackingSkill": 188,
-        "serverGrowth": 35
+        "serverGrowth": 35,
     },
     {
         "cpuCores": 1,
@@ -1272,7 +1272,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 2,
         "openPortCount": 2,
         "requiredHackingSkill": 284,
-        "serverGrowth": 59
+        "serverGrowth": 59,
     },
     {
         "cpuCores": 1,
@@ -1298,7 +1298,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 2,
         "openPortCount": 2,
         "requiredHackingSkill": 303,
-        "serverGrowth": 55
+        "serverGrowth": 55,
     },
     {
         "cpuCores": 1,
@@ -1324,7 +1324,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 3,
         "openPortCount": 5,
         "requiredHackingSkill": 393,
-        "serverGrowth": 58
+        "serverGrowth": 58,
     },
     {
         "cpuCores": 1,
@@ -1350,7 +1350,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 3,
         "openPortCount": 5,
         "requiredHackingSkill": 399,
-        "serverGrowth": 68
+        "serverGrowth": 68,
     },
     {
         "cpuCores": 1,
@@ -1376,7 +1376,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 3,
         "openPortCount": 5,
         "requiredHackingSkill": 404,
-        "serverGrowth": 45
+        "serverGrowth": 45,
     },
     {
         "cpuCores": 1,
@@ -1402,7 +1402,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 3,
         "openPortCount": 5,
         "requiredHackingSkill": 414,
-        "serverGrowth": 49
+        "serverGrowth": 49,
     },
     {
         "cpuCores": 1,
@@ -1428,7 +1428,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 4,
         "openPortCount": 5,
         "requiredHackingSkill": 426,
-        "serverGrowth": 34
+        "serverGrowth": 34,
     },
     {
         "cpuCores": 1,
@@ -1454,7 +1454,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 3,
         "openPortCount": 5,
         "requiredHackingSkill": 432,
-        "serverGrowth": 53
+        "serverGrowth": 53,
     },
     {
         "cpuCores": 1,
@@ -1480,7 +1480,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 3,
         "openPortCount": 5,
         "requiredHackingSkill": 481,
-        "serverGrowth": 46
+        "serverGrowth": 46,
     },
     {
         "cpuCores": 1,
@@ -1506,7 +1506,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 3,
         "openPortCount": 5,
         "requiredHackingSkill": 492,
-        "serverGrowth": 41
+        "serverGrowth": 41,
     },
     {
         "cpuCores": 1,
@@ -1532,7 +1532,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 4,
         "openPortCount": 5,
         "requiredHackingSkill": 596,
-        "serverGrowth": 50
+        "serverGrowth": 50,
     },
     {
         "cpuCores": 1,
@@ -1558,7 +1558,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 4,
         "openPortCount": 5,
         "requiredHackingSkill": 615,
-        "serverGrowth": 69
+        "serverGrowth": 69,
     },
     {
         "cpuCores": 1,
@@ -1584,7 +1584,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 4,
         "openPortCount": 5,
         "requiredHackingSkill": 693,
-        "serverGrowth": 57
+        "serverGrowth": 57,
     },
     {
         "cpuCores": 1,
@@ -1610,7 +1610,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 4,
         "openPortCount": 5,
         "requiredHackingSkill": 724,
-        "serverGrowth": 59
+        "serverGrowth": 59,
     },
     {
         "cpuCores": 1,
@@ -1636,7 +1636,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 725,
-        "serverGrowth": 82
+        "serverGrowth": 82,
     },
     {
         "cpuCores": 1,
@@ -1662,7 +1662,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 4,
         "openPortCount": 5,
         "requiredHackingSkill": 765,
-        "serverGrowth": 88
+        "serverGrowth": 88,
     },
     {
         "cpuCores": 1,
@@ -1688,7 +1688,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 4,
         "openPortCount": 5,
         "requiredHackingSkill": 776,
-        "serverGrowth": 81
+        "serverGrowth": 81,
     },
     {
         "cpuCores": 1,
@@ -1714,7 +1714,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 777,
-        "serverGrowth": 76
+        "serverGrowth": 76,
     },
     {
         "cpuCores": 1,
@@ -1740,7 +1740,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 4,
         "openPortCount": 5,
         "requiredHackingSkill": 779,
-        "serverGrowth": 78
+        "serverGrowth": 78,
     },
     {
         "cpuCores": 1,
@@ -1766,7 +1766,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 4,
         "openPortCount": 5,
         "requiredHackingSkill": 784,
-        "serverGrowth": 75
+        "serverGrowth": 75,
     },
     {
         "cpuCores": 1,
@@ -1792,7 +1792,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 810,
-        "serverGrowth": 75
+        "serverGrowth": 75,
     },
     {
         "cpuCores": 1,
@@ -1818,7 +1818,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 4,
         "openPortCount": 5,
         "requiredHackingSkill": 820,
-        "serverGrowth": 71
+        "serverGrowth": 71,
     },
     {
         "cpuCores": 1,
@@ -1844,7 +1844,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 4,
         "openPortCount": 5,
         "requiredHackingSkill": 834,
-        "serverGrowth": 87
+        "serverGrowth": 87,
     },
     {
         "cpuCores": 1,
@@ -1870,7 +1870,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 837,
-        "serverGrowth": 78
+        "serverGrowth": 78,
     },
     {
         "cpuCores": 1,
@@ -1896,7 +1896,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 845,
-        "serverGrowth": 76
+        "serverGrowth": 76,
     },
     {
         "cpuCores": 1,
@@ -1922,7 +1922,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 850,
-        "serverGrowth": 62
+        "serverGrowth": 62,
     },
     {
         "cpuCores": 1,
@@ -1948,7 +1948,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 853,
-        "serverGrowth": 79
+        "serverGrowth": 79,
     },
     {
         "cpuCores": 1,
@@ -1974,7 +1974,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 865,
-        "serverGrowth": 73
+        "serverGrowth": 73,
     },
     {
         "cpuCores": 1,
@@ -2000,7 +2000,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 866,
-        "serverGrowth": 81
+        "serverGrowth": 81,
     },
     {
         "cpuCores": 1,
@@ -2026,7 +2026,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 870,
-        "serverGrowth": 92
+        "serverGrowth": 92,
     },
     {
         "cpuCores": 1,
@@ -2052,7 +2052,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 894,
-        "serverGrowth": 69
+        "serverGrowth": 69,
     },
     {
         "cpuCores": 1,
@@ -2078,7 +2078,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 908,
-        "serverGrowth": 51
+        "serverGrowth": 51,
     },
     {
         "cpuCores": 1,
@@ -2104,7 +2104,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 920,
-        "serverGrowth": 69
+        "serverGrowth": 69,
     },
     {
         "cpuCores": 1,
@@ -2130,7 +2130,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 941,
-        "serverGrowth": 70
+        "serverGrowth": 70,
     },
     {
         "cpuCores": 1,
@@ -2156,7 +2156,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 947,
-        "serverGrowth": 68
+        "serverGrowth": 68,
     },
     {
         "cpuCores": 1,
@@ -2182,7 +2182,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 961,
-        "serverGrowth": 68
+        "serverGrowth": 68,
     },
     {
         "cpuCores": 1,
@@ -2208,7 +2208,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 1009,
-        "serverGrowth": 64
+        "serverGrowth": 64,
     },
     {
         "cpuCores": 1,
@@ -2234,7 +2234,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 1012,
-        "serverGrowth": 51
+        "serverGrowth": 51,
     },
     {
         "cpuCores": 1,
@@ -2260,7 +2260,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 1025,
-        "serverGrowth": 98
+        "serverGrowth": 98,
     },
     {
         "cpuCores": 1,
@@ -2286,7 +2286,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 1051,
-        "serverGrowth": 93
+        "serverGrowth": 93,
     },
     {
         "cpuCores": 1,
@@ -2312,7 +2312,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 1127,
-        "serverGrowth": 99
+        "serverGrowth": 99,
     },
     {
         "cpuCores": 1,
@@ -2338,7 +2338,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 1131,
-        "serverGrowth": 71
+        "serverGrowth": 71,
     },
     {
         "cpuCores": 1,
@@ -2364,7 +2364,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 1145,
-        "serverGrowth": 55
+        "serverGrowth": 55,
     },
     {
         "cpuCores": 1,
@@ -2390,7 +2390,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 1163,
-        "serverGrowth": 75
+        "serverGrowth": 75,
     },
     {
         "cpuCores": 1,
@@ -2416,7 +2416,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 1201,
-        "serverGrowth": 90
+        "serverGrowth": 90,
     },
     {
         "cpuCores": 1,
@@ -2442,7 +2442,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 1208,
-        "serverGrowth": 91
+        "serverGrowth": 91,
     },
     {
         "cpuCores": 1,
@@ -2468,7 +2468,7 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 1244,
-        "serverGrowth": 99
+        "serverGrowth": 99,
     },
     {
         "cpuCores": 1,
@@ -2494,5 +2494,5 @@ export const allServers: Server[] = [{
         "numOpenPortsRequired": 5,
         "openPortCount": 5,
         "requiredHackingSkill": 1312,
-        "serverGrowth": 1
+        "serverGrowth": 1,
     }];
