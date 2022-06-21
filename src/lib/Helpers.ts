@@ -1,27 +1,25 @@
 import {NS} from "Bitburner";
 
-const ReadText = {
-    readLines(ns: NS, file: string): string[] {
+class ReadText {
+    static readLines(ns: NS, file: string): string[] {
         return (ns.read(file) as string).split(/\r?\n/);
-    },
+    }
 
-    readNonEmptyLines(ns: NS, file: string): string[] {
-        return ReadText.readLines(ns, file).filter(
-            (x) => x.trim() != ""
-        );
-    },
-};
+    static readNonEmptyLines(ns: NS, file: string): string[] {
+        return this.readLines(ns, file).filter(value => value.trim() != "");
+    }
+}
 
-const DownloadFiles = {
-    async getfileToHome(ns: NS, source: string, dest: string) {
+class DownloadFiles {
+    static async getFileToHome(ns: NS, source: string, dest: string) {
         const logger = new TermLogger(ns);
         logger.info(`Downloading ${source} -> ${dest}`);
 
         if (!(await ns.wget(source, dest, "home"))) {
             logger.err(`\tFailed retrieving ${source} -> ${dest}`);
         }
-    },
-};
+    }
+}
 
 class TermLogger {
     static INFO_LITERAL = "INFO   >";
@@ -109,7 +107,7 @@ class RepoInit {
 
         this.logger.info(`Getting manifest...`);
 
-        await DownloadFiles.getfileToHome(
+        await DownloadFiles.getFileToHome(
             this.ns,
             manifestUrl,
             repoSettings.manifestPath
@@ -131,7 +129,7 @@ class RepoInit {
             if (!pair) {
                 this.logger.err(`Could not read line ${file}`);
             } else {
-                await DownloadFiles.getfileToHome(this.ns, pair.source, pair.dest);
+                await DownloadFiles.getFileToHome(this.ns, pair.source, pair.dest);
             }
         }
     }

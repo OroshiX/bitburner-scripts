@@ -11,6 +11,7 @@ export async function main(ns: NS) {
     const securityThresh = ns.getServerMinSecurityLevel(target) + 5;
     const running: string = <string>ns.args[1] ?? ns.getHostname();
 
+    // noinspection InfiniteLoopJS
     while (true) {
         const homeMaxRam = ns.getServerMaxRam(running);
         // recalculate times each loop, because security will vary
