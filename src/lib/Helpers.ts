@@ -97,7 +97,19 @@ class RepoInit {
             : null;
     }
 
+    async deleteAllScriptsNotRunning() {
+        this.logger.info(`Deleting scripts`);
+        let files = this.ns.ls("home", ".js");
+        for (let file of files) {
+            if (!this.ns.isRunning(file, "home")) {
+                this.logger.info(`-> deleting ${file}`);
+                this.ns.rm(file, "home");
+            }
+        }
+    }
+
     async pullScripts() {
+        await this.deleteAllScriptsNotRunning();
         await this.getManifest();
         await this.downloadAllFiles();
     }
