@@ -1,11 +1,6 @@
-# BitBurner TypeScript template repo
+# BitBurner scripts in TypeScript 
 
-This is a starter repo for anyone wanting to use TypeScript to play
-BitBurner!
-
-The template relies on a number of things that you can probably change
-to your liking; just be aware you might need to fiddle with settings if
-you change them.
+This project was started from the template repository [bitBurnerTsProject](https://github.com/Naliwe/bitBurnerTsProject), and now is used to contain my Bitburner scripts.
 
 # Usage
 
