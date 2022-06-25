@@ -190,7 +190,3 @@ import { Blep } from "/lib/Blep";
 ```
 
 which is valid for the game.
-
-# Contributing
-
-Feel free to send PRs!
