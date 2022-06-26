@@ -30,13 +30,13 @@ export async function main(ns: NS) {
         let hackThreads = Math.ceil(ns.hackAnalyzeThreads(target, money));
 
         // Grow thread calc
-        let maxMoney = ns.getServerMaxMoney(target);
+        const maxMoney = ns.getServerMaxMoney(target);
         let growThreads = Math.ceil(ns.growthAnalyze(target, maxMoney / money));
 
         // Max threads calc
-        let homeUsedRam = ns.getServerUsedRam(running);
-        let availableRam = homeMaxRam - homeUsedRam;
-        let maxThreads = Math.floor(availableRam / Math.max(hackRam, growRam, weakenRam));
+        const homeUsedRam = ns.getServerUsedRam(running);
+        const availableRam = homeMaxRam - homeUsedRam;
+        const maxThreads = Math.floor(availableRam / Math.max(hackRam, growRam, weakenRam));
 
         let scriptName;
         let threads;

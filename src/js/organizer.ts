@@ -1,5 +1,5 @@
 /** @param {NS} ns */
-import {NS} from "Bitburner";
+import {NS, Server} from "Bitburner";
 
 export async function main(ns: NS) {
     const target: string = <string>ns.args[0] ?? "iron-gym";
@@ -42,11 +42,11 @@ export async function main(ns: NS) {
         const weakenTime = ns.getWeakenTime(target);
         ns.print(
             `looping in, hostname: ${ns.getHostname()}, targetRun: ${targetRun}, availableRam: ${availableRam}, grow: ${growTime}ms, weak: ${weakenTime} ms`);
-        var sleepTime = 0;
+        let sleepTime = 0;
         // Weaken thread calculation
-        let requiredWeakenThreads = Math.ceil((security - minSec) / ns.weakenAnalyze(1));
-        let maxWeakenThreads = Math.floor(availableRam * partWeaken / weakenRam);
-        let weakenThreads = Math.min(requiredWeakenThreads, maxWeakenThreads);
+        const requiredWeakenThreads = Math.ceil((security - minSec) / ns.weakenAnalyze(1));
+        const maxWeakenThreads = Math.floor(availableRam * partWeaken / weakenRam);
+        const weakenThreads = Math.min(requiredWeakenThreads, maxWeakenThreads);
         if (weakenThreads > 0) {
             ns.exec(scriptWeaken, targetRun, weakenThreads, target);
             sleepTime += weakenTime;
@@ -56,9 +56,9 @@ export async function main(ns: NS) {
 
         availableRam = availableRam - weakenThreads * weakenRam;
         // Grow thread calc
-        let requiredGrowThreads = Math.ceil(ns.growthAnalyze(target, maxMoney / money));
-        let maxGrowThreads = Math.floor(availableRam / growRam);
-        let growThreads = Math.min(requiredGrowThreads, maxGrowThreads);
+        const requiredGrowThreads = Math.ceil(ns.growthAnalyze(target, maxMoney / money));
+        const maxGrowThreads = Math.floor(availableRam / growRam);
+        const growThreads = Math.min(requiredGrowThreads, maxGrowThreads);
         if (growThreads > 0) {
             ns.exec(scriptGrow, targetRun, growThreads, target);
             sleepTime += growTime;
@@ -76,6 +76,7 @@ export async function main(ns: NS) {
     partGrow = 2 / 13;
     partWeaken = 10 / 13;
 
+    // noinspection InfiniteLoopJS
     while (true) {
         let availableRam = ns.getServerMaxRam(targetRun) - ns.getServerUsedRam(targetRun);
         // recalculate times each loop, because security will vary
@@ -85,25 +86,25 @@ export async function main(ns: NS) {
 
         // Weaken thread calculation
         security = ns.getServerSecurityLevel(target);
-        let requiredWeakenThreads = Math.ceil((security - minSec) / ns.weakenAnalyze(1));
-        let maxWeakenThreads = Math.floor(availableRam * partWeaken / weakenRam);
-        let weakenThreads = Math.min(requiredWeakenThreads, maxWeakenThreads);
-        let weakenT1 = Math.ceil(weakenThreads / 2);
-        let weakenT2 = weakenThreads - weakenT1;
+        const requiredWeakenThreads = Math.ceil((security - minSec) / ns.weakenAnalyze(1));
+        const maxWeakenThreads = Math.floor(availableRam * partWeaken / weakenRam);
+        const weakenThreads = Math.min(requiredWeakenThreads, maxWeakenThreads);
+        const weakenT1 = Math.ceil(weakenThreads / 2);
+        const weakenT2 = weakenThreads - weakenT1;
 
         // Grow thread calc
-        let requiredGrowThreads = Math.ceil(ns.growthAnalyze(target, maxMoney / money));
-        let maxGrowThreads = Math.floor(availableRam * partGrow / growRam);
-        let growThreads = Math.min(requiredGrowThreads, maxGrowThreads);
+        const requiredGrowThreads = Math.ceil(ns.growthAnalyze(target, maxMoney / money));
+        const maxGrowThreads = Math.floor(availableRam * partGrow / growRam);
+        const growThreads = Math.min(requiredGrowThreads, maxGrowThreads);
 
 
         // Hack thread calc
         availableRam -= (weakenT1 + weakenT2) * weakenRam + growThreads * growRam;
         money = ns.getServerMoneyAvailable(target);
         if (money <= 0) money = 1;// no division by 0
-        let requiredHackThreads = Math.ceil(ns.hackAnalyzeThreads(target, money));
-        let maxHackThreads = Math.floor(availableRam / hackRam);
-        let hackThreads = Math.min(requiredHackThreads, maxHackThreads);
+        const requiredHackThreads = Math.ceil(ns.hackAnalyzeThreads(target, money));
+        const maxHackThreads = Math.floor(availableRam / hackRam);
+        const hackThreads = Math.min(requiredHackThreads, maxHackThreads);
 
 
         if (weakenT1 > 0) {
@@ -133,7 +134,7 @@ export async function main(ns: NS) {
  * @param targetRun {Server}
  * @param target
  */
-function calculateGrow(targetRun, target) {
+function calculateGrow(targetRun: Server, target: string) {
 
 }
 

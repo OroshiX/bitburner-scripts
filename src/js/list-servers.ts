@@ -25,7 +25,6 @@ export async function main(ns: NS) {
         }
         let lower, upper, sign;
         const pad1 = 18, pad2 = 22;
-        let part1, part2;
         if (res === 0) {
             lower = a;
             upper = b;
@@ -40,9 +39,9 @@ export async function main(ns: NS) {
                 upper = b;
             }
         }
-        part1 = lower.hostname.padEnd(pad1) +
+        const part1 = lower.hostname.padEnd(pad1) +
             ` (${lower.moneyMax}, ${lower.requiredHackingSkill})`.padEnd(pad2);
-        part2 = upper.hostname.padEnd(pad1) +
+        const part2 = upper.hostname.padEnd(pad1) +
             ` (${upper.moneyMax},${upper.requiredHackingSkill})`.padEnd(pad2);
         toPrint += `\n${part1}\t${sign}\t${part2}\t[${res}]`;
         return res;
@@ -56,13 +55,13 @@ export async function main(ns: NS) {
  * @param {Array<Server>} list
  * @param level the level number
  */
-export function analyzeNetwork(ns: NS, root: string = "home", list: Server[] = [],
+export function analyzeNetwork(ns: NS, root = "home", list: Server[] = [],
                                level = 0): Server[] {
     const server = ns.getServer(root);
     ns.print(">".padEnd(level, "-") + root + ` RAM used: ${server.ramUsed}`);
     list[list.length] = server;
     const children = ns.scan(root);
-    for (let c of children) {
+    for (const c of children) {
         if (list.findIndex((e, i, o) => e.hostname === c) === -1) {
             analyzeNetwork(ns, c, list, level + 1);
         }

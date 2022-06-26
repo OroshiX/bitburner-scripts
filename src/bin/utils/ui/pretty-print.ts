@@ -19,8 +19,8 @@ export const upLeftCurve = "╭";
 export const upRightCurve = "╮";
 export const downLeftCurve = "╰";
 export const downRightCurve = "╯";
-export const block: string = "█";
-export const rightBlock: string = "▐";
+export const block = "█";
+export const rightBlock = "▐";
 export const leftBlock = "▌";
 export const downBlock = "▄";
 
@@ -30,10 +30,10 @@ export const downBlock = "▄";
 export async function main(ns: NS) {
     ns.clearLog();
     //    ns.tprint(bar(0.455, 50, true))
-    //    let box1 = box(null, null, "this,is a,box".split(','));
-    //    let box2 = box(31, 4);
-    //    let boxes = concatGraphs(box1, box2);
-    //    let myTable = table([[1, 2, 3], [4, 5, 6], [6, 7, 8]], "all");
+    //    const box1 = box(null, null, "this,is a,box".split(','));
+    //    const box2 = box(31, 4);
+    //    const boxes = concatGraphs(box1, box2);
+    //    const myTable = table([[1, 2, 3], [4, 5, 6], [6, 7, 8]], "all");
     //    ns.tprint(concatGraphs(myTable, boxes, ' '))
     //    ns.tprint(table(stringToMatrix(ns.read("/augments/augsPrice.txt")), "first"))
     let props: string[];
@@ -73,7 +73,7 @@ async function chooseProperty(chosen, available, ns) {
  * @param {string[]} properties
  */
 function objectToTable(list: any[], properties: string[]) {
-    let res: string[][] = [];
+    const res: string[][] = [];
     res[0] = properties;
     for (let i = 1; i <= list.length; i++) {
         const row: any[] = [];
@@ -130,7 +130,7 @@ export function fluctuation(h, v, array) {
 
 export function bar(value = 0, length = 100, reverse = false) {
     let aux = length * value;
-    let array: string[] = [];
+    const array: string[] = [];
     let string: string;
     for (let j = 0; j < length; j++) {
         if (aux >= 1) {
@@ -184,11 +184,11 @@ export function box(h = 0, v = 0, text = null, aline = "left") {
 export function table(matrix, horizontalSeparator = "", aline = "left") {
     let line = "";
     let all = false;
-    let rows = matrix.length;
-    let columns = matrix[0].length;
-    let lengthPerColumn = new Array(columns).fill(0);
+    const rows = matrix.length;
+    const columns = matrix[0].length;
+    const lengthPerColumn = new Array(columns).fill(0);
     let alinePerColumn;
-    let separatorPerRow: number[] = [];
+    const separatorPerRow: number[] = [];
     let separator;
     for (let i = 0; i < rows; i++) {
         for (let j = 0; j < matrix[i].length; j++) {
@@ -272,7 +272,7 @@ export function lineHorizontal(char, h, char2: string | null = null) {
 }
 
 export function stringToMatrix(string: string, firstSplit = "\n", secondSplit = ",") {
-    let matrix: string[][] = [];
+    const matrix: string[][] = [];
     string.split(firstSplit).forEach((l) => matrix.push(l.split(secondSplit)));
     return matrix;
 }
@@ -295,10 +295,10 @@ export function alignString(input, length, align) {
 export function concatGraphs(string1 = "", string2 = "", space = "") {
     let line = "";
     let output = "";
-    let array1 = string1.split("\n");
-    let array2 = string2.split("\n");
-    let length1 = array1[0].length;
-    let length2 = array2[0].length;
+    const array1 = string1.split("\n");
+    const array2 = string2.split("\n");
+    const length1 = array1[0].length;
+    const length2 = array2[0].length;
     let length = array1.length;
     if (array1.length < array2.length)
         length = array2.length;

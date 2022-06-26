@@ -3,8 +3,8 @@ import {TermLogger} from "/lib/Helpers";
 
 export async function main(ns: NS) {
     const logger = new TermLogger(ns);
-    let choices: string[] = [];
-    let maxRam = ns.getPurchasedServerMaxRam();
+    const choices: string[] = [];
+    const maxRam = ns.getPurchasedServerMaxRam();
     let i = 3;
     let currentRam = 2 ** i;
     while (currentRam <= maxRam) {
@@ -12,15 +12,15 @@ export async function main(ns: NS) {
         i++;
         currentRam = 2 ** i;
     }
-    let targetRamSt: string = <string>await ns.prompt("RAM for newly purchased servers: ",
+    const targetRamSt: string = <string>await ns.prompt("RAM for newly purchased servers: ",
         {type: "select", choices: choices});
 
     if (targetRamSt === undefined) {
         ns.tprint("Failed to select RAM");
         return;
     }
-    let targetRam = parseInt(targetRamSt);
-    let removeBelowSt: string = <string>await ns.prompt("Delete servers below this RAM",
+    const targetRam = parseInt(targetRamSt);
+    const removeBelowSt: string = <string>await ns.prompt("Delete servers below this RAM",
         {type: "select", choices: choices});
     let removeBelow: number;
     if (removeBelowSt === undefined) {
@@ -28,9 +28,9 @@ export async function main(ns: NS) {
     } else {
         removeBelow = parseInt(removeBelowSt);
     }
-    let purchasedList = ns.getPurchasedServers();
-    for (let s of purchasedList) {
-        let purchased = ns.getServer(s);
+    const purchasedList = ns.getPurchasedServers();
+    for (const s of purchasedList) {
+        const purchased = ns.getServer(s);
         if (purchased.maxRam <= removeBelow) {
             ns.killall(s);
             ns.deleteServer(s);
@@ -42,7 +42,7 @@ export async function main(ns: NS) {
         while (ns.getServerMoneyAvailable("home") < costServer) {
             await ns.sleep(30000);
         }
-        let purchased = ns.purchaseServer(`a-serv-${targetRam}`, targetRam);
+        const purchased = ns.purchaseServer(`a-serv-${targetRam}`, targetRam);
         logger.info(`Bought server ${purchased} with ${targetRam}G RAM`);
     }
 }

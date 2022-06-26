@@ -51,7 +51,7 @@ export async function main(ns: NS) {
  * @param root the root node to analyze
  * @param list the collected nodes
  */
-function analyzeNetwork(ns: NS, root: string = "home", list: ServerChars[] = []): ServerChars[] {
+function analyzeNetwork(ns: NS, root= "home", list: ServerChars[] = []): ServerChars[] {
     const server = ns.getServer(root);
     ns.getServerSecurityLevel(root);
     list[list.length] =
@@ -69,7 +69,7 @@ function analyzeNetwork(ns: NS, root: string = "home", list: ServerChars[] = [])
 
 function format(list: ServerChars[]) {
     let res = "Name,Skill,Available €,Max €,Money %,Security,Min security,Security %,Admin?,RAM\n";
-    for (let l of list) {
+    for (const l of list) {
         res += l.format(",") + "\n";
     }
     return res;

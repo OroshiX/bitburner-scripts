@@ -9,21 +9,21 @@ export async function main(ns: NS) {
     getRootAccess(list, ns);
     let i = 0;
     let next: string = <string>ns.args[i];
-    let targets: string[] = [];
+    const targets: string[] = [];
     while (i < 10 && next !== undefined) {
         targets[i] = next as string;
         i++;
         next = <string>ns.args[i];
     }
     if (targets.length === 0) {
-        let nbTargetsSt: string = <string>await ns.prompt("Choose the number of targets",
+        const nbTargetsSt: string = <string>await ns.prompt("Choose the number of targets",
             {type: "select", choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]});
         if (nbTargetsSt === undefined) {
             ns.tprint("Cancelling deploy");
             return;
         }
-        let nbTargets = parseInt(nbTargetsSt);
-        let listServers = getSortedListServers(list, ns.getHackingLevel());
+        const nbTargets = parseInt(nbTargetsSt);
+        const listServers = getSortedListServers(list, ns.getHackingLevel());
         for (i = 0; i < nbTargets; i++) {
             const chosen = await ns.prompt(`choose the target No: ${i + 1}`,
                 {type: "select", choices: listServers.map((e) => e.hostname)});
@@ -75,12 +75,12 @@ export async function main(ns: NS) {
 }
 
 function getRootAccess(list: Server[], ns: NS) {
-    let ftp = programExists("FTPCrack.exe", ns);
-    let ssh = programExists("BruteSSH.exe", ns);
-    let sql = programExists("SQLInject.exe", ns);
-    let http = programExists("HTTPWorm.exe", ns);
-    let smtp = programExists("relaySMTP.exe", ns);
-    for (let server of list) {
+    const ftp = programExists("FTPCrack.exe", ns);
+    const ssh = programExists("BruteSSH.exe", ns);
+    const sql = programExists("SQLInject.exe", ns);
+    const http = programExists("HTTPWorm.exe", ns);
+    const smtp = programExists("relaySMTP.exe", ns);
+    for (const server of list) {
         if (!server.hasAdminRights) {
             if (server.numOpenPortsRequired > server.openPortCount) {
                 ns.print(
@@ -119,7 +119,7 @@ function getRootAccess(list: Server[], ns: NS) {
 }
 
 function programExists(name: string, ns: NS): boolean {
-    let res = ns.fileExists(name, "home");
+    const res = ns.fileExists(name, "home");
     if (!res) {
         ns.print(`Program ${name} does not exist`);
     }

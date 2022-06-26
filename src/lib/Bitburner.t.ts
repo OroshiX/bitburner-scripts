@@ -3121,7 +3121,7 @@ declare module "Bitburner" {
          * @param cityName - Name of city. Case-sensitive
          * @returns Estimated number of Synthoids in the specified city.
          */
-        getCityEstimatedPopulation(name: string): number;
+        getCityEstimatedPopulation(cityName: string): number;
 
         /**
          * Get number of communities in a city.
@@ -3134,7 +3134,7 @@ declare module "Bitburner" {
          * @param cityName - Name of city. Case-sensitive
          * @returns Number of Synthoids communities in the specified city.
          */
-        getCityCommunities(name: string): number;
+        getCityCommunities(cityName: string): number;
 
         /**
          * Get chaos of a city.
@@ -3147,7 +3147,7 @@ declare module "Bitburner" {
          * @param cityName - Name of city. Case-sensitive
          * @returns Chaos in the specified city.
          */
-        getCityChaos(name: string): number;
+        getCityChaos(cityName: string): number;
 
         /**
          * Get current city.
@@ -3171,7 +3171,7 @@ declare module "Bitburner" {
          * @param cityName - Name of city. Case-sensitive
          * @returns true if successful, and false otherwise
          */
-        switchCity(name: string): boolean;
+        switchCity(cityName: string): boolean;
 
         /**
          * Get bladeburner stamina.
@@ -4840,7 +4840,7 @@ declare module "Bitburner" {
          * RAM cost: 0 GB
          *
          * @param format - format of the message
-         * @param msg - Value to be printed.
+         * @param values - Value to be printed.
          */
         tprintf(format: string, ...values: any[]): void;
 
@@ -6667,7 +6667,7 @@ declare module "Bitburner" {
          * @param divisionName - Name of the division
          * @returns Number of times you have Hired AdVert
          */
-        getHireAdVertCount(adivisionName: string): number;
+        getHireAdVertCount(divisionName: string): number;
 
         /**
          * Get the cost to unlock research
@@ -6703,7 +6703,7 @@ declare module "Bitburner" {
          * @param size - Amount of positions to open
          * @returns Cost of upgrading the office
          */
-        getOfficeSizeUpgradeCost(divisionName: string, cityName: string, asize: number): number;
+        getOfficeSizeUpgradeCost(divisionName: string, cityName: string, size: number): number;
     }
 
     /**
@@ -6947,7 +6947,7 @@ declare module "Bitburner" {
          * @param amt - amount of upgrades defaults to 1
          * @returns cost to upgrade
          */
-        getUpgradeWarehouseCost(adivisionName: any, acityName: any, amt?: number): number;
+        getUpgradeWarehouseCost(divisionName: any, cityName: any, amt?: number): number;
 
         /**
          * Check if you have a warehouse in city
@@ -6963,7 +6963,7 @@ declare module "Bitburner" {
     export interface Corporation extends WarehouseAPI, OfficeAPI {
         /**
          * Create a Corporation
-         * @param divisionName - Name of the division
+         * @param corporationName - Name of the division
          * @param selfFund - If you should self fund, defaults to true, false will only work on Bitnode 3
          * @returns true if created and false if not
          */

@@ -99,8 +99,8 @@ class RepoInit {
 
     async deleteAllScriptsNotRunning() {
         this.logger.info(`Deleting scripts`);
-        let files = this.ns.ls("home", ".js");
-        for (let file of files) {
+        const files = this.ns.ls("home", ".js");
+        for (const file of files) {
             if (!this.ns.isRunning(file, "home")) {
                 this.logger.info(`-> deleting ${file}`);
                 this.ns.rm(file, "home");
@@ -135,7 +135,7 @@ class RepoInit {
         this.logger.info(`Contents of manifest:`);
         this.logger.info(`\t${files}`);
 
-        for (let file of files) {
+        for (const file of files) {
             const pair = RepoInit.getSourceDestPair(file);
 
             if (!pair) {
